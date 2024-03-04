@@ -3,8 +3,6 @@ package utils
 import (
 	"log"
 	"os"
-
-	"github.com/joho/godotenv"
 )
 
 type Config struct {
@@ -14,10 +12,11 @@ type Config struct {
 
 
 func InitConfig() *Config {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file:", err)
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	log.Fatal("Error loading .env file:", err)
+	// }
+	
 	Token := os.Getenv("DISCORD_TOKEN")
 	if Token == "" {
 		log.Fatal("No token found in .env file")
